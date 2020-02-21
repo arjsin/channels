@@ -1,10 +1,10 @@
 type State = "empty" | "receiver" | "data";
 
 // Multi Producer Single Consumer Channel
-export class Channel<T> {
-	private receivers: ((t: T) => void)[];
-	private data: T[];
-	private _state: State;
+export class SimpleChannel<T> {
+	receivers: ((t: T) => void)[];
+	data: T[];
+	_state: State;
 
 	get state(): string {
 		return this._state;
@@ -49,5 +49,29 @@ export class Channel<T> {
 		while(true) {
 			yield await this.receive();
 		}
+	}
+}
+
+// Multi Producer Multi Consumer Channel
+export class MultiReceiverChannel<T> {
+	private chan: Set<SimpleChannel<T>>;
+	constructor() {
+		this.chan = new Set();
+	}
+
+	send(data: T): void {
+		for(const chan of this.chan) {
+			chan.send(data);
+		}
+	}
+
+	receiver(): SimpleChannel<T> {
+		const chan = new SimpleChannel<T>();
+		this.chan.add(chan);
+		return chan;
+	}
+
+	removeReceiver(chan: SimpleChannel<T>): void {
+		this.chan.delete(chan);
 	}
 }

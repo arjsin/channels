@@ -1,7 +1,7 @@
-import { Channel } from "./index";
+import { SimpleChannel } from "./index";
 
 test("receive and then send", async () => {
-	const ch = new Channel();
+	const ch = new SimpleChannel();
 	const p1 = ch.receive().then((val) => expect(val).toBe(2));
 	const p2 = ch.receive().then((val) => expect(val).toBe(4));
 	expect(ch.state).toBe("receiver");
@@ -12,7 +12,7 @@ test("receive and then send", async () => {
 });
 
 test("send and then receive", async () => {
-	const ch = new Channel();
+	const ch = new SimpleChannel();
 	ch.send(2);
 	expect(ch.state).toBe("data");
 	await ch.receive().then((val) => expect(val).toBe(2));
@@ -20,7 +20,7 @@ test("send and then receive", async () => {
 });
 
 test("send and then receive in async iterator", async () => {
-	const ch = new Channel();
+	const ch = new SimpleChannel();
 	ch.send(2);
 	ch.send(4);
 	let iter = 0;
