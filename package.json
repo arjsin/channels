@@ -2,9 +2,15 @@
   "name": "channels",
   "version": "0.1.0",
   "description": "Channels implemented in Typescript using async/await",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjsin/channels.git"
+  },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "install": "tsc",
     "check": "eslint --fix **/*.ts && tsc --noEmit",
     "test": "jest"
   },

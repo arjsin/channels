@@ -2,6 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es2019",
+        "declaration": true,
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
         "emitDecoratorMetadata": true,

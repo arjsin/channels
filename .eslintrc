@@ -1,4 +1,4 @@
-module.exports = {
+{
     "env": {
         "es6": true
     },
@@ -12,7 +12,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint",
+        "@typescript-eslint"
     ],
     "rules": {
         "@typescript-eslint/indent": ["error", "tab"],
@@ -29,6 +29,6 @@ module.exports = {
             {
                 "code": 120
             }
-        ],
+        ]
     }
-};
+}
