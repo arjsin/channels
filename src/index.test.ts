@@ -35,3 +35,12 @@ test("send and then receive in async iterator", async () => {
 	}
 	expect(ch.state).toBe("empty");
 });
+
+test("send and close", async () => {
+	const ch = new SimpleChannel();
+	ch.send(200);
+	ch.close();
+	for await(const data of ch) {
+		expect(data).toBe(200);
+	}
+});
