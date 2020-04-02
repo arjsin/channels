@@ -1,22 +1,22 @@
-import { SimpleChannel } from "./index";
+import { SimpleChannel, State } from "./index";
 
 test("receive and then send", async () => {
 	const ch = new SimpleChannel();
 	const p1 = ch.receive().then((val) => expect(val).toBe(2));
 	const p2 = ch.receive().then((val) => expect(val).toBe(4));
-	expect(ch.state).toBe("receiver");
+	expect(ch.state).toBe(State.Receiver);
 	ch.send(2);
 	ch.send(4);
 	await Promise.all([p1, p2]);
-	expect(ch.state).toBe("empty");
+	expect(ch.state).toBe(State.Empty);
 });
 
 test("send and then receive", async () => {
 	const ch = new SimpleChannel();
 	ch.send(2);
-	expect(ch.state).toBe("data");
+	expect(ch.state).toBe(State.Data);
 	await ch.receive().then((val) => expect(val).toBe(2));
-	expect(ch.state).toBe("empty");
+	expect(ch.state).toBe(State.Empty);
 });
 
 test("send and then receive in async iterator", async () => {
@@ -33,7 +33,7 @@ test("send and then receive in async iterator", async () => {
 		}
 		iter++;
 	}
-	expect(ch.state).toBe("empty");
+	expect(ch.state).toBe(State.Empty);
 });
 
 test("send and close", async () => {
@@ -43,4 +43,5 @@ test("send and close", async () => {
 	for await(const data of ch) {
 		expect(data).toBe(200);
 	}
+	expect(ch.state).toBe(State.Close);
 });
