@@ -2,9 +2,9 @@ export enum State { Empty, Receiver, Data, Close }
 
 // Multi Producer Single Consumer Channel
 export class SimpleChannel<T> {
-	receivers: [((t: T) => void), (() => void)][];
-	data: (T|null)[];
-	_state: State;
+	private receivers: [((t: T) => void), (() => void)][];
+	private data: (T|null)[];
+	private _state: State;
 
 	get state(): State {
 		return this._state;
@@ -70,8 +70,7 @@ export class SimpleChannel<T> {
 	async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
 		try {
 			while(true) {
-				const val = await this.receive();
-				yield val;
+				yield await this.receive();
 			}
 		} catch {
 			// assume we're done with the channel
