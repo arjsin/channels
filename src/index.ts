@@ -1,4 +1,9 @@
-export enum State { Empty, Receiver, Data, Close }
+export enum State {
+	Empty = "empty",
+	Receiver = "receiver",
+	Data = "data",
+	Close = "close"
+}
 
 // Multi Producer Single Consumer Channel
 export class SimpleChannel<T> {
