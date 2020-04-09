@@ -20,5 +20,5 @@
             "es2020"
         ],
     },
-    "include": [ "src" ]
+    "include": [ "src", "test" ]
 }

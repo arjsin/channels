@@ -1,4 +1,4 @@
-import {observe} from "./observe";
+import {observe} from "../src";
 
 test("simple notify on observable", async (done) => {
 	const array = observe([0, 0]);

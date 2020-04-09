@@ -1,9 +1,9 @@
-import { MultiReceiverChannel, SimpleChannel } from "./";
+import { MultiReceiverChannel, SimpleChannel, SimpleReceiver } from "./";
 
 interface Observer<T> {
 	notify: () => void;
-	receiver: () => SimpleChannel<T>;
-	removeReceiver: (chan: SimpleChannel<T>) => void;
+	receiver: () => SimpleReceiver<T>;
+	removeReceiver: (chan: SimpleReceiver<T>) => void;
 }
 
 export type Observable<T> = T & Observer<T>;
@@ -19,13 +19,13 @@ export const observe = <T extends {}>(t: T): Observable<T> => {
 			}
 		},
 		receiver: {
-			value: function(): SimpleChannel<T> {
+			value: function(): SimpleReceiver<T> {
 				return this.chan.receiver();
 			}
 		},
 		removeReceiver: {
-			value: function(r: SimpleChannel<T>): void {
-				this.chan.close();
+			value: function(r: SimpleReceiver<T>): void {
+				(r as SimpleChannel<T>).close();
 				this.chan.removeReceiver(r);
 			}
 		}
