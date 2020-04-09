@@ -1,8 +1,8 @@
 export enum State {
-	Empty = "empty",
-	Receiver = "receiver",
-	Data = "data",
-	Close = "close"
+	empty = "empty",
+	receiver = "receiver",
+	data = "data",
+	close = "close"
 }
 
 // Multi Producer Single Consumer Channel
@@ -18,55 +18,55 @@ export class SimpleChannel<T> {
 	constructor() {
 		this.receivers = [];
 		this.data = [];
-		this._state = State.Empty;
+		this._state = State.empty;
 	}
 
 	receive(): Promise<T> {
-		if(this._state === State.Close) {
+		if(this._state === State.close) {
 			return Promise.reject();
-		} else if(this._state === State.Data) {
+		} else if(this._state === State.data) {
 			const data = this.data.shift() as T;
 			if(data === null) {
-				this._state = State.Close;
+				this._state = State.close;
 				return Promise.reject();
 			}
 			if(this.data.length === 0) {
-				this._state = State.Empty;
+				this._state = State.empty;
 			}
 			return Promise.resolve(data);
 		} else {
 			return new Promise((resolve, reject) => {
 				// executor runs before creating the Promise
 				this.receivers.push([resolve, reject]);
-				this._state = State.Receiver;
+				this._state = State.receiver;
 			});
 		}
 	}
 
 	send(data: T): void {
-		if(this._state === State.Close) {
+		if(this._state === State.close) {
 			throw "sending on closed channel";
-		} else if(this._state !== State.Receiver) { // when no receiver
+		} else if(this._state !== State.receiver) { // when no receiver
 			this.data.push(data);
-			this._state = State.Data;
+			this._state = State.data;
 		} else { // at least one receiver is available
 			const [resolve] = this.receivers.shift() as [(t: T) => void, () => void];
 			resolve(data);
 			if(this.receivers.length === 0) {
-				this._state = State.Empty;
+				this._state = State.empty;
 			}
 		}
 	}
 
 	close(): void {
-		if(this._state !== State.Receiver) { // when no receiver
+		if(this._state !== State.receiver) { // when no receiver
 			this.data.push(null);
-			this._state = State.Data;
+			this._state = State.data;
 		} else { // at least one receiver is available
 			const [, reject] = this.receivers.shift() as [(t: T) => void, () => void];
 			reject();
 			if(this.receivers.length === 0) {
-				this._state = State.Close;
+				this._state = State.close;
 			}
 		}
 
