@@ -1,17 +1,18 @@
 {
-  "name": "channels",
+  "name": "channel-ts",
   "version": "0.1.0",
   "description": "Channels implemented in Typescript using async/await",
   "repository": {
     "type": "git",
     "url": "https://github.com/arjsin/channels.git"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": ["lib/**/*"],
   "scripts": {
-    "build": "tsc",
-    "install": "tsc",
-    "check": "eslint --fix **/*.ts && tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "prepublish": "tsc -p tsconfig.build.json",
+    "check": "eslint --fix  src/**/*.ts && tsc --noEmit",
     "test": "jest"
   },
   "author": "Arjun Singh",

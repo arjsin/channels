@@ -15,18 +15,10 @@
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
-        "outDir": "dist",
+        "outDir": "lib",
         "lib": [
             "es2020"
         ],
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "node_modules/*"
-            ]
-        }
     },
-    "include": [
-        "src/**/*"
-    ]
+    "include": [ "src" ]
 }
