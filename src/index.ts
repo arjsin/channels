@@ -59,7 +59,9 @@ export class SimpleChannel<T> {
 	}
 
 	close(): void {
-		if(this._state !== State.receiver) { // when no receiver
+		if(this._state === State.close) { // when already closed
+			return;
+		} else if(this._state !== State.receiver) { // when no receiver
 			this.data.push(null);
 			this._state = State.data;
 		} else { // at least one receiver is available
