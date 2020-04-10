@@ -8,10 +8,12 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "prepublish": "tsc -p tsconfig.build.json",
+    "prepare": "tsc -p tsconfig.build.json",
     "check": "eslint --fix  src/**/*.ts && tsc --noEmit",
     "test": "jest"
   },
