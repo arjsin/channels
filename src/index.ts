@@ -1,4 +1,4 @@
 import { SimpleChannel, State as ChannelState, MultiReceiverChannel, SimpleReceiver } from "./channel";
-import { observe } from "./observe";
+import { observe, Observable } from "./observe";
 
-export { SimpleChannel, ChannelState, MultiReceiverChannel, SimpleReceiver, observe };
+export { SimpleChannel, ChannelState, MultiReceiverChannel, SimpleReceiver, observe, Observable };
