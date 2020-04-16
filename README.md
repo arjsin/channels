@@ -3,6 +3,7 @@
 
 [![Node.js CI](https://img.shields.io/github/workflow/status/arjsin/channels/Node.js%20CI?style=flat-square)](https://github.com/arjsin/channels/actions?query=workflow%3A%22Node.js+CI%22)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](/LICENSE)
+[![NPM](https://img.shields.io/npm/v/channel-ts?style=flat-square)](https://www.npmjs.com/package/channel-ts)
 
 ## Features
 - Simple API with JavaScript's async iterators for receivers
@@ -10,7 +11,7 @@
 - Observe on object and manual notify
 
 ## Examples
-### Multi producers and single consumer
+### Multi producer and single consumer
 This channel allows multiple sender to send data to a single receiver.
 The messages starts buffering as soon as the channel is created.
 No messages are lost.
@@ -52,7 +53,7 @@ main();
 ### Output
 [![Simple Output](../assets/simple_output.svg?raw=true&sanitize=true)](#)
 
-## Multi producers and multi consumer
+## Multi producer and multi consumer
 This channel allows multiple senders to send data to a multiple receivers.
 This channel needs explicit creation of receiver.
 All the messages are broadcast and buffered for receivers to receive.
