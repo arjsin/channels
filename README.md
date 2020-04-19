@@ -2,7 +2,7 @@
 >Minimal Async/Await Channels in Typescript
 
 [![Node.js CI](https://img.shields.io/github/workflow/status/arjsin/channels/Node.js%20CI?style=flat-square)](https://github.com/arjsin/channels/actions?query=workflow%3A%22Node.js+CI%22)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](/LICENSE)
+[![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](/LICENSE)
 [![NPM](https://img.shields.io/npm/v/channel-ts?style=flat-square)](https://www.npmjs.com/package/channel-ts)
 
 ## Features
