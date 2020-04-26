@@ -1,6 +1,6 @@
 {
   "name": "channel-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Channels implemented in Typescript using async/await",
   "repository": {
     "type": "git",
@@ -30,6 +30,17 @@
     "ts-jest": "^25.2.0",
     "typescript": "^3.7.5"
   },
+  "keywords": [
+    "channel",
+    "csp",
+    "typescript",
+    "async",
+    "await",
+    "observer",
+    "observable",
+    "publisher",
+    "subscriber"
+  ],
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
