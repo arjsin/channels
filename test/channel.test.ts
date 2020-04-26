@@ -1,4 +1,5 @@
 import { SimpleChannel, ChannelState } from "../src";
+import { TryReceivedKind } from "../src/channel";
 
 test("receive and then send", async () => {
 	const ch = new SimpleChannel();
@@ -14,8 +15,10 @@ test("receive and then send", async () => {
 test("send and then receive", async () => {
 	const ch = new SimpleChannel();
 	ch.send(2);
+	ch.send(3);
 	expect(ch.state).toBe(ChannelState.data);
 	await ch.receive().then((val) => expect(val).toBe(2));
+	expect(ch.tryReceive()).toStrictEqual({kind: TryReceivedKind.value, value: 3});
 	expect(ch.state).toBe(ChannelState.empty);
 });
 
@@ -43,5 +46,4 @@ test("send and close", async () => {
 	for await(const data of ch) {
 		expect(data).toBe(200);
 	}
-	expect(ch.state).toBe(ChannelState.close);
 });

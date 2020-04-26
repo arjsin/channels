@@ -5,6 +5,16 @@ export enum State {
 	close = "close"
 }
 
+export enum TryReceivedKind {
+	value = "value",
+	notReceived = "no",
+	close = "close",
+}
+
+export type TryReceived<T> = {kind: TryReceivedKind.value; value: T}
+| {kind: TryReceivedKind.notReceived}
+| {kind: TryReceivedKind.close};
+
 // Multi Producer Single Consumer Channel
 export class SimpleChannel<T> {
 	private receivers: [((t: T) => void), (() => void)][];
@@ -19,6 +29,22 @@ export class SimpleChannel<T> {
 		this.receivers = [];
 		this.data = [];
 		this._state = State.empty;
+	}
+
+	tryReceive(): TryReceived<T> {
+		if(this._state == State.data) {
+			const data = this.data.shift() as T;
+			if(data === null) {
+				this._state = State.close;
+				return {kind: TryReceivedKind.close};
+			}
+			if(this.data.length === 0) {
+				this._state = State.empty;
+			}
+			return {kind: TryReceivedKind.value, value: data};
+		} else {
+			return {kind: TryReceivedKind.notReceived};
+		}
 	}
 
 	receive(): Promise<T> {
@@ -87,6 +113,7 @@ export class SimpleChannel<T> {
 
 export interface SimpleReceiver<T> {
 	receive: () => Promise<T>;
+	tryReceive(): TryReceived<T>;
 	[Symbol.asyncIterator]: () => AsyncIterableIterator<T>;
 }
 
