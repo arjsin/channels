@@ -9,6 +9,7 @@
 - Simple API with JavaScript's async iterators for receivers
 - Broadcast on MultiReceiverChannel
 - Observe on object and manual notify
+- Mutex
 
 ## Examples
 ### Multi producer and single consumer
@@ -153,6 +154,52 @@ main();
 ```
 ### Output
 [![Simple Output](../assets/observe_output.svg?raw=true&sanitize=true)](#)
+
+## Mutex
+Mutex allows asynchronous program to have synchronization by the application of locking. This is useful when a shared resource is accessed concurrently.
+```typescript
+import { Mutex } from "channel-ts";
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const main = async () => {
+	const task1 = async (): Promise<void> => {
+		console.log("task 1: going to start");
+		const guard = await mutex.acquire();
+		console.log("task 1: mutex acquired");
+		await delay(2000);  // assume shared access done by task 1
+		console.log("task 1: finished");
+		guard.release();
+		console.log("task 1: mutex released");
+	};
+	const task2 = async (): Promise<void> => {
+		await delay(200);
+		console.log("task 2: going to start");
+		const guard = await mutex.acquire();
+		console.log("task 2: mutex acquired");
+		await delay(1500);  // assume shared access done by task 2
+		console.log("task 2: finished");
+		guard.release();
+		console.log("task 2: mutex released");
+	};
+	const task3 = async (): Promise<void> => {
+		await delay(400);
+		console.log("task 3: going to start");
+		const guard = await mutex.acquire();
+		console.log("task 3: mutex acquired");
+		await delay(1800);  // assume shared access done by task 3
+		console.log("task 3: finished");
+		guard.release();
+		console.log("task 3: mutex released");
+	};
+	// wait for all our tasks
+	await Promise.all([task1(), task2(), task3()]);
+};
+
+main();
+```
+### Output
+[![Simple Output](../assets/mutex_output.svg?raw=true&sanitize=true)](#)
 
 ## License
  **[MIT license](/LICENSE)**
