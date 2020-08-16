@@ -1,4 +1,4 @@
-import {
+export {
 	SimpleChannel,
 	State as ChannelState,
 	MultiReceiverChannel,
@@ -6,15 +6,5 @@ import {
 	TryReceivedKind,
 	TryReceived
 } from "./channel";
-import { observe, Observable } from "./observe";
-
-export {
-	SimpleChannel,
-	ChannelState,
-	MultiReceiverChannel,
-	SimpleReceiver,
-	observe,
-	Observable,
-	TryReceivedKind,
-	TryReceived
-};
+export { observe, Observable } from "./observe";
+export { Mutex, Guard } from "./mutex";

@@ -1,6 +1,6 @@
 {
   "name": "channel-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Channels implemented in Typescript using async/await",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
     "jest": "^25.1.0",
     "reflect-metadata": "^0.1.13",
     "ts-jest": "^25.2.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.7"
   },
   "keywords": [
     "channel",
@@ -39,7 +39,8 @@
     "observer",
     "observable",
     "publisher",
-    "subscriber"
+    "subscriber",
+    "mutex"
   ],
   "jest": {
     "preset": "ts-jest",
