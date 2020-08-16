@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 640 410" width="640" version="1.1">
+    <defs>
+        <style type="text/css">
+            #screen {
+                font-family: 'DejaVu Sans Mono', monospace;
+                font-style: normal;
+                font-size: 14px;
+            }
+
+            text {
+                dominant-baseline: text-before-edge;
+                white-space: pre;
+            }
+    
+            :root {
+                --animation-duration: 8377ms;
+            }
+
+            @keyframes roll {
+                0.000%{transform:translateY(0px)}
+                23.875%{transform:translateY(-442px)}
+                24.627%{transform:translateY(-884px)}
+                24.639%{transform:translateY(-1326px)}
+                27.038%{transform:translateY(-1768px)}
+                29.438%{transform:translateY(-2210px)}
+                48.550%{transform:translateY(-2652px)}
+                48.585%{transform:translateY(-3094px)}
+                66.480%{transform:translateY(-3536px)}
+                66.527%{transform:translateY(-3978px)}
+                88.003%{transform:translateY(-4420px)}
+                88.063%{transform:translateY(-4862px)}
+                100.000%{transform:translateY(-4862px)}
+            }
+
+            #screen_view {
+                animation-duration: 8377ms;
+                animation-iteration-count:infinite;
+                animation-name:roll;
+                animation-timing-function: steps(1,end);
+                animation-fill-mode: forwards;
+            }
+            .foreground {fill: #cccccc;}
+            .background {fill: #0c0c0c;}
+            .color0 {fill: #0c0c0c;}
+            .color1 {fill: #c50f1f;}
+            .color2 {fill: #13a10e;}
+            .color3 {fill: #c19c00;}
+            .color4 {fill: #0037da;}
+            .color5 {fill: #881798;}
+            .color6 {fill: #3a96dd;}
+            .color7 {fill: #cccccc;}
+            .color8 {fill: #767676;}
+            .color9 {fill: #e74856;}
+            .color10 {fill: #16c60c;}
+            .color11 {fill: #f9f1a5;}
+            .color12 {fill: #3b78ff;}
+            .color13 {fill: #b4009e;}
+            .color14 {fill: #61d6d6;}
+            .color15 {fill: #f2f2f2;}
+        </style>
+    </defs>
+    <svg id="screen" width="640" height="408" viewBox="0 0 640 408" preserveAspectRatio="xMidYMin slice">
+    <rect class="background" height="100%" width="100%" x="0" y="0"/><defs><g id="g1"><text x="0" textLength="8" font-weight="bold" class="color14">$</text><text x="8" textLength="8" class="foreground"> </text><text x="16" textLength="128" font-weight="bold" class="color15">ts-node mutex.ts</text><text x="144" textLength="8" class="background"> </text></g><g id="g2"><text x="0" textLength="8" font-weight="bold" class="color14">$</text><text x="8" textLength="8" class="foreground"> </text><text x="16" textLength="128" font-weight="bold" class="color15">ts-node mutex.ts</text></g><g id="g3"><text x="0" textLength="8" class="background"> </text></g><g id="g4"><text x="0" textLength="176" class="foreground">task 1: going to start</text></g><g id="g5"><text x="0" textLength="176" class="foreground">task 1: mutex acquired</text></g><g id="g6"><text x="0" textLength="176" class="foreground">task 2: going to start</text></g><g id="g7"><text x="0" textLength="176" class="foreground">task 3: going to start</text></g><g id="g8"><text x="0" textLength="128" class="foreground">task 1: finished</text></g><g id="g9"><text x="0" textLength="176" class="foreground">task 1: mutex released</text></g><g id="g10"><text x="0" textLength="176" class="foreground">task 2: mutex acquired</text></g><g id="g11"><text x="0" textLength="128" class="foreground">task 2: finished</text></g><g id="g12"><text x="0" textLength="176" class="foreground">task 2: mutex released</text></g><g id="g13"><text x="0" textLength="176" class="foreground">task 3: mutex acquired</text></g><g id="g14"><text x="0" textLength="128" class="foreground">task 3: finished</text></g><g id="g15"><text x="0" textLength="176" class="foreground">task 3: mutex released</text></g></defs><g id="screen_view"><g><rect x="144" y="0" width="8" height="17" class="foreground"/><use xlink:href="#g1" y="0"/></g><g><use xlink:href="#g2" y="442"/><rect x="0" y="459" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="459"/></g><g><use xlink:href="#g2" y="884"/><use xlink:href="#g4" y="901"/><rect x="0" y="918" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="918"/></g><g><use xlink:href="#g2" y="1326"/><use xlink:href="#g4" y="1343"/><use xlink:href="#g5" y="1360"/><rect x="0" y="1377" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="1377"/></g><g><use xlink:href="#g2" y="1768"/><use xlink:href="#g4" y="1785"/><use xlink:href="#g5" y="1802"/><use xlink:href="#g6" y="1819"/><rect x="0" y="1836" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="1836"/></g><g><use xlink:href="#g2" y="2210"/><use xlink:href="#g4" y="2227"/><use xlink:href="#g5" y="2244"/><use xlink:href="#g6" y="2261"/><use xlink:href="#g7" y="2278"/><rect x="0" y="2295" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="2295"/></g><g><use xlink:href="#g2" y="2652"/><use xlink:href="#g4" y="2669"/><use xlink:href="#g5" y="2686"/><use xlink:href="#g6" y="2703"/><use xlink:href="#g7" y="2720"/><use xlink:href="#g8" y="2737"/><rect x="0" y="2754" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="2754"/></g><g><use xlink:href="#g2" y="3094"/><use xlink:href="#g4" y="3111"/><use xlink:href="#g5" y="3128"/><use xlink:href="#g6" y="3145"/><use xlink:href="#g7" y="3162"/><use xlink:href="#g8" y="3179"/><use xlink:href="#g9" y="3196"/><use xlink:href="#g10" y="3213"/><rect x="0" y="3230" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="3230"/></g><g><use xlink:href="#g2" y="3536"/><use xlink:href="#g4" y="3553"/><use xlink:href="#g5" y="3570"/><use xlink:href="#g6" y="3587"/><use xlink:href="#g7" y="3604"/><use xlink:href="#g8" y="3621"/><use xlink:href="#g9" y="3638"/><use xlink:href="#g10" y="3655"/><use xlink:href="#g11" y="3672"/><rect x="0" y="3689" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="3689"/></g><g><use xlink:href="#g2" y="3978"/><use xlink:href="#g4" y="3995"/><use xlink:href="#g5" y="4012"/><use xlink:href="#g6" y="4029"/><use xlink:href="#g7" y="4046"/><use xlink:href="#g8" y="4063"/><use xlink:href="#g9" y="4080"/><use xlink:href="#g10" y="4097"/><use xlink:href="#g11" y="4114"/><use xlink:href="#g12" y="4131"/><use xlink:href="#g13" y="4148"/><rect x="0" y="4165" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="4165"/></g><g><use xlink:href="#g2" y="4420"/><use xlink:href="#g4" y="4437"/><use xlink:href="#g5" y="4454"/><use xlink:href="#g6" y="4471"/><use xlink:href="#g7" y="4488"/><use xlink:href="#g8" y="4505"/><use xlink:href="#g9" y="4522"/><use xlink:href="#g10" y="4539"/><use xlink:href="#g11" y="4556"/><use xlink:href="#g12" y="4573"/><use xlink:href="#g13" y="4590"/><use xlink:href="#g14" y="4607"/><rect x="0" y="4624" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="4624"/></g><g><use xlink:href="#g2" y="4862"/><use xlink:href="#g4" y="4879"/><use xlink:href="#g5" y="4896"/><use xlink:href="#g6" y="4913"/><use xlink:href="#g7" y="4930"/><use xlink:href="#g8" y="4947"/><use xlink:href="#g9" y="4964"/><use xlink:href="#g10" y="4981"/><use xlink:href="#g11" y="4998"/><use xlink:href="#g12" y="5015"/><use xlink:href="#g13" y="5032"/><use xlink:href="#g14" y="5049"/><use xlink:href="#g15" y="5066"/><rect x="0" y="5083" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="5083"/></g></g></svg>
+</svg>
