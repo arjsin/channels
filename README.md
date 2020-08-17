@@ -8,7 +8,7 @@
 ## Features
 - Simple API with JavaScript's async iterators for receivers
 - Broadcast on MultiReceiverChannel
-- Observe on object and manual notify
+- Observe on object and notify manually
 - Mutex
 
 ## Examples
